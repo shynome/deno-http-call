@@ -6,24 +6,9 @@
 
 - `Deno v1.8.2`
 
-# 安装为 systemd 服务
-
-```sh
-# 软链接 deno 到全局变量文件里
-ln -s $(which deno) /usr/local/bin/deno
-
-# 创建工作目录
-mkdir /usr/local/share/deno-http-call
-
-# 下载程序文件到 /usr/local/share/deno-http-call/http-call.js
-wget https://github.com/shynome/deno-http-call/releases/download/v0.0.3/http-call.js /usr/local/share/deno-http-call/http-call.js
-
-# 下载 deno-http-call.service 文件到 /lib/systemd/system/deno-http-call.service, 你可以根据需要修改该文件
-wget https://raw.githubusercontent.com/shynome/deno-http-call/main/systemd/deno-http-call.service /lib/systemd/system/deno-http-call.service
-
-# 完成
-systemctl start deno-http-call
-```
+目前`deno`暂无 debian 的安装包, 需要手动安装`deno`放到 `/usr/bin/deno`  
+下载地址: https://github.com/denoland/deno/releases  
+如果你已安装`deno`但不是该路径, 则需要手动软连接到该路径 `ln -s $(which deno) /usr/bin/deno`, 因为 deb 安装包使用了该路径
 
 # 使用
 
@@ -37,6 +22,11 @@ deno run -A http-call.js start
 # 调用命令, 会返回对应命令的结果
 curl http://127.0.0.1:8080/PXMzLLY0TT8pT52Oy2KKDt-77QP4F2xHqtZq7faoFY8JtTVOhpn5dXasWC55Y0GaEtdXoYozDqtW0UjRdf3n7EPfKBwwlWIK45d40qArw0YK0x9LwhsADkmD9VO5Sws6
 ```
+
+# 安装 deb
+
+下载 <https://github.com/shynome/deno-http-call/releases> 中的 deb 后缀安装包  
+安装命令 `dpkg -i deno-http-call*.deb`, 数据放在`/etc/deno-http-call`目录下
 
 # 高级使用
 
