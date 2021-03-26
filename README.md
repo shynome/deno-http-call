@@ -31,3 +31,12 @@ curl http://127.0.0.1:8080/PXMzLLY0TT8pT52Oy2KKDt-77QP4F2xHqtZq7faoFY8JtTVOhpn5d
 # 高级使用
 
 加密的 key 读取顺序是: 先读环境变量`CALL_KEY`, 没有再读`.call-key`文件, 再没有就自己生成一个随机 key 写入`.call-key`文件
+
+# 构建
+
+```sh
+# 生成 http-call.js
+make bundle
+# 生成 deb 安装包
+make deb
+```
