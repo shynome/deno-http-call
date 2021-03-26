@@ -1,0 +1,6 @@
+Package: deno-http-call
+Description: deno http call host command
+Version: 0.0.3
+Architecture: all
+Maintainer: shynome <shynome@gmail.com>
+Homepage: https://github.com/shynome/deno-http-call

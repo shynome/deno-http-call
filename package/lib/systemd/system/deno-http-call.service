@@ -5,9 +5,9 @@ Documentation=https://github.com/shynome/deno-http-call
 After=network.target
 
 [Service]
+ExecStart=/usr/bin/deno run -A /usr/lib/deno-http-call/http-call.js start
+WorkingDirectory=/etc/deno-http-call
 Restart=on-failure
-ExecStart=/usr/local/bin/deno run -A http-call.js start
-WorkingDirectory=/usr/local/share/deno-http-call
 
 [Install]
 WantedBy=multi-user.target
