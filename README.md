@@ -6,6 +6,25 @@
 
 - `Deno v1.8.2`
 
+# 安装为 systemd 服务
+
+```sh
+# 软链接 deno 到全局变量文件里
+ln -s $(which deno) /usr/local/bin/deno
+
+# 创建工作目录
+mkdir /usr/local/share/deno-http-call
+
+# 下载程序文件到 /usr/local/share/deno-http-call/http-call.js
+wget https://github.com/shynome/deno-http-call/releases/download/v0.0.3/http-call.js /usr/local/share/deno-http-call/http-call.js
+
+# 下载 deno-http-call.service 文件到 /lib/systemd/system/deno-http-call.service, 你可以根据需要修改该文件
+wget https://raw.githubusercontent.com/shynome/deno-http-call/main/systemd/deno-http-call.service /lib/systemd/system/deno-http-call.service
+
+# 完成
+systemctl start deno-http-call
+```
+
 # 使用
 
 下载 <https://github.com/shynome/deno-http-call/releases> 中的 `http-call.js` 文件

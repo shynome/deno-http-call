@@ -1,0 +1,13 @@
+# 参考自 https://www.cnblogs.com/sparkdev/p/8521812.html
+[Unit]
+Description=deno http call host command
+Documentation=https://github.com/shynome/deno-http-call
+After=network.target
+
+[Service]
+Restart=on-failure
+ExecStart=/usr/local/bin/deno run -A http-call.js start
+WorkingDirectory=/usr/local/share/deno-http-call
+
+[Install]
+WantedBy=multi-user.target
