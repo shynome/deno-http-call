@@ -7,6 +7,7 @@ After=network.target
 [Service]
 ExecStart=/usr/bin/deno run -A /usr/lib/deno-http-call/http-call.js start
 WorkingDirectory=/etc/deno-http-call
+Environment="SHELL=%s"
 Restart=on-failure
 
 [Install]
