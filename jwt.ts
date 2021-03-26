@@ -1,4 +1,8 @@
-import { AES, encode as encodeC, Random } from "./deps.ts";
+import Random from "https://deno.land/x/random@v1.1.2/Random.js";
+import {
+  AES,
+  encode as encodeC,
+} from "https://deno.land/x/god_crypto@v1.4.9/mod.ts";
 
 const keyPath = ".call-key";
 
