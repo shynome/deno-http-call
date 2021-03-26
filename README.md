@@ -32,6 +32,14 @@ curl http://127.0.0.1:8080/PXMzLLY0TT8pT52Oy2KKDt-77QP4F2xHqtZq7faoFY8JtTVOhpn5d
 
 加密的 key 读取顺序是: 先读环境变量`CALL_KEY`, 没有再读`.call-key`文件, 再没有就自己生成一个随机 key 写入`.call-key`文件
 
+可以通过 `systemctl edit deno-http-call` 通过设置新的 `ExecStart` 使用不同的端口提供服务
+
+```conf
+[Service]
+ExecStart=
+ExecStart=/usr/bin/deno run -A /usr/lib/deno-http-call/http-call.js start 60001
+```
+
 # 构建
 
 ```sh
