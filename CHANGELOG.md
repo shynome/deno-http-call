@@ -1,3 +1,9 @@
+# v0.0.5
+
+- change: 子命令 `encode`, `decode` 改为意图更准确的 `crypt`, `decrypt`
+- change: 可以通过环境变量 `PORT` 来设置端口了
+- add: 启动时会输出版本号方便定位版本了
+
 # v0.0.4
 
 - add: 添加`exit-code`和`success`返回头
