@@ -15,7 +15,7 @@ switch (args[0]) {
     break;
   case "start": {
     const _port = args[1];
-    let port = Number(_port);
+    let port = Number(Deno.env.get("PORT") || _port);
     if (isNaN(port) || port === 0) {
       port = 8080;
     }
