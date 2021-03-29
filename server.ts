@@ -62,6 +62,7 @@ async function handle(ctx: Context) {
   respond(ctx, { status: 200, body: result.output });
 }
 
+import { VERSION } from "./version.ts";
 export async function start(port = 8080) {
   const app = new Application();
   app.use((ctx) => {
@@ -73,6 +74,6 @@ export async function start(port = 8080) {
       console.error(err);
     });
   });
-  console.log("服务已启动 http://0.0.0.0:" + port);
+  console.log(`deno-http-call v${VERSION} \n服务已启动: http://0.0.0.0:${port}`);
   await app.listen({ port: port });
 }
