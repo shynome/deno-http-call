@@ -1,4 +1,4 @@
-import { decode } from "./jwt.ts";
+import { decrypt } from "./jwt.ts";
 import { call, CallError } from "./call.ts";
 import {
   Application,
@@ -41,7 +41,7 @@ async function setEnv(ctx: Context, opts: { [k: string]: any }) {
 }
 
 async function handle(ctx: Context) {
-  const opts = await decode(ctx.request.url.pathname.slice(1)).catch(() => {
+  const opts = await decrypt(ctx.request.url.pathname.slice(1)).catch(() => {
     respond(ctx, { status: 406, body: "错误的格式" });
     throw new ProcessedError();
   });
