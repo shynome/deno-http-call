@@ -5,6 +5,8 @@ export class CallError extends Error {}
 export interface CallResult {
   output: string;
   error: string;
+  success: boolean;
+  code: number;
 }
 
 export async function call(cmd: string, env: { [k: string]: string } = {}) {
@@ -28,9 +30,10 @@ export async function call(cmd: string, env: { [k: string]: string } = {}) {
   ]).then((outputs) =>
     outputs.map((output) => new TextDecoder().decode(output))
   );
-  await proc.status(); // wait proc finished
-  proc.close();
+  const status = await proc.status(); // wait proc finished
   return {
+    code: status.code,
+    success: status.success,
     output: output,
     error: errOutput,
   } as CallResult;

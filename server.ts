@@ -53,7 +53,9 @@ async function handle(ctx: Context) {
     }
     throw err;
   });
-  if (result.error != "") {
+  ctx.response.headers.set("success", JSON.stringify(result.success));
+  ctx.response.headers.set("exit-code", JSON.stringify(result.code));
+  if (result.success == false) {
     respond(ctx, { status: 500, body: result.error });
     return;
   }
