@@ -3,13 +3,15 @@ import { start } from "./server.ts";
 
 const args = Deno.args;
 switch (args[0]) {
+  case "crypt":
   case "encode": {
-    const token = await JWT.encode(args[1], args[2]);
+    const token = await JWT.crypt(args[1], args[2]);
     console.log(token);
     break;
   }
+  case "decrypt":
   case "decode":
-    console.log(await JWT.decode(args[1]));
+    console.log(await JWT.decrypt(args[1]));
     break;
   case "start": {
     const _port = args[1];

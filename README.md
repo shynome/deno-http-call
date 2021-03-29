@@ -16,11 +16,13 @@
 
 ```sh
 # 加密命令, 会输出一串base64如: PXMzLLY0TT8pT52Oy2KKDt-77QP4F2xHqtZq7faoFY8JtTVOhpn5dXasWC55Y0GaEtdXoYozDqtW0UjRdf3n7EPfKBwwlWIK45d40qArw0YK0x9LwhsADkmD9VO5Sws6
-deno run -A http-call.js encode $PWD 'pwd'
+deno run -A http-call.js crypt $PWD 'pwd'
 # 启动服务
 deno run -A http-call.js start
 # 调用命令, 会返回对应命令的结果
 curl http://127.0.0.1:8080/PXMzLLY0TT8pT52Oy2KKDt-77QP4F2xHqtZq7faoFY8JtTVOhpn5dXasWC55Y0GaEtdXoYozDqtW0UjRdf3n7EPfKBwwlWIK45d40qArw0YK0x9LwhsADkmD9VO5Sws6
+# 解密加密命令
+deno run -A http-call.js decrypt PXMzLLY0TT8pT52Oy2KKDt-77QP4F2xHqtZq7faoFY8JtTVOhpn5dXasWC55Y0GaEtdXoYozDqtW0UjRdf3n7EPfKBwwlWIK45d40qArw0YK0x9LwhsADkmD9VO5Sws6
 ```
 
 # 安装 deb

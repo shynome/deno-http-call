@@ -13,14 +13,14 @@ const key = Deno.env.get("CALL_KEY") ||
     return secret;
   });
 
-export async function encode(pwd: string, cmd: string) {
+export async function crypt(pwd: string, cmd: string) {
   const aes = new AES(key, { mode: "cbc" });
   const data = JSON.stringify({ PWD: pwd, cmd: cmd });
   const cipher = await aes.encrypt(data);
   return cipher.base64url() as string;
 }
 
-export async function decode(data: string) {
+export async function decrypt(data: string) {
   const aes = new AES(key, { mode: "cbc" });
   const d2 = encodeC.base64url(data);
   const plain = await aes.decrypt(d2);
