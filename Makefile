@@ -4,3 +4,7 @@ bundle:
 deb:
 	make bundle
 	dpkg -b package deno-http-call.deb
+module-cache:
+	deno cache --lock=lock.json main.ts
+lock-file:
+	deno cache --lock=lock.json --lock-write main.ts

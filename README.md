@@ -44,6 +44,8 @@ Environment="PORT=60001"
 # 构建
 
 ```sh
+# 下载模块依赖
+make module-cache
 # 生成 http-call.js
 make bundle
 # 生成 deb 安装包
