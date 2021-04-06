@@ -30,6 +30,12 @@ deno run -A http-call.js decrypt PXMzLLY0TT8pT52Oy2KKDt-77QP4F2xHqtZq7faoFY8JtTV
 下载 <https://github.com/shynome/deno-http-call/releases> 中的 deb 后缀安装包  
 安装命令 `dpkg -i deno-http-call*.deb`, 数据放在`/etc/deno-http-call`目录下
 
+deb安装包的使用，在进入`/etc/deno-http-call`使用上面的命令，需要把上面的`http-call.js`改成`/usr/lib/deno-http-call/http-call.js`
+```sh
+cd /etc/deno-http-call
+deno run -A /usr/lib/deno-http-call/http-call.js crypt /tmp 'echo hello'
+```
+
 # 高级使用
 
 加密的 key 读取顺序是: 先读环境变量`CALL_KEY`, 没有再读`.call-key`文件, 再没有就自己生成一个随机 key 写入`.call-key`文件
